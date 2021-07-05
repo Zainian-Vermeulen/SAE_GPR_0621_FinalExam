@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
@@ -49,6 +49,15 @@ TagManager:
     locked: 0
   - name: Background_front
     uniqueID: 4230794641
+    locked: 0
+  - name: Level
+    uniqueID: 1113469805
+    locked: 0
+  - name: Level_Deco1
+    uniqueID: 876326765
+    locked: 0
+  - name: Level_Deco2
+    uniqueID: 2180655863
     locked: 0
   - name: Default
     uniqueID: 0
