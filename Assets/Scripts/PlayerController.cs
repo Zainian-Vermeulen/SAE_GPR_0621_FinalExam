@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _slowdownDragMultiplyer;
     [SerializeField] float _groundedCheckLength;
     [SerializeField] LayerMask _groundedLayerMask;
+    [SerializeField] float deathHeight = -6;
 
     private bool _isGrounded;
 
@@ -38,9 +39,18 @@ public class PlayerController : MonoBehaviour
         UpdateMovement();
         UpdateState();
         UpdateVisuals();
+
+        if(transform.position.y < deathHeight)
+        {
+            Respawn();
+        }
     }
 
-
+    private void Respawn()
+    {
+        transform.position = Vector3.zero;
+        _rigidbody.velocity = Vector2.zero;
+    }
 
     private void UpdateGrounded()
     {
