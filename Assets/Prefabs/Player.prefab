@@ -127,13 +127,14 @@ MonoBehaviour:
   - Player_Fall
   _rigidbody: {fileID: 65974876}
   _maxSpeed: 10
-  _acceleration: 30
+  _acceleration: 15
   _jumpForce: 8
   _slowdownDragMultiplyer: 4
   _groundedCheckLength: 1
   _groundedLayerMask:
     serializedVersion: 2
     m_Bits: 1
+  deathHeight: -6
 --- !u!50 &65974876
 Rigidbody2D:
   serializedVersion: 4
