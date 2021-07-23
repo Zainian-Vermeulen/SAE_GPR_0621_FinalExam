@@ -33,6 +33,20 @@ public class PlayerController : MonoBehaviour
 
     private bool _isGrounded;
 
+    public event System.Action Grounded;
+
+    private void Awake()
+    {
+        Level.Instance.SetPlayer(this);
+        Level.Instance.Reset += OnReset;
+    }
+
+    private void OnReset()
+    {
+        transform.position = Vector3.zero;
+        _rigidbody.velocity = Vector2.zero;
+    }
+
     private void Update()
     {
         UpdateGrounded();
@@ -40,16 +54,10 @@ public class PlayerController : MonoBehaviour
         UpdateState();
         UpdateVisuals();
 
-        if(transform.position.y < deathHeight)
+        if (transform.position.y < deathHeight)
         {
-            Respawn();
+            Level.Instance.ResetLevel();
         }
-    }
-
-    private void Respawn()
-    {
-        transform.position = Vector3.zero;
-        _rigidbody.velocity = Vector2.zero;
     }
 
     private void UpdateGrounded()
@@ -60,6 +68,9 @@ public class PlayerController : MonoBehaviour
         int hitCount = Physics2D.Raycast(transform.position, Vector2.down, filter, hits, _groundedCheckLength);
 
         _isGrounded = hitCount > 0;
+
+        if (_isGrounded)
+            Grounded?.Invoke();
     }
 
     private void OnDrawGizmos()
