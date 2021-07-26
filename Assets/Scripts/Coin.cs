@@ -5,15 +5,15 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform == Level.Instance.PlayerTranform)
         {
             Debug.Log("Collected Coin");
             Level.Instance.CollectCoin();
 
-            Destroy(gameObject);
-        }
+            gameObject.SetActive(false);
+        }   
     }
 
 }
