@@ -59,6 +59,15 @@ TagManager:
   - name: Level_Deco2
     uniqueID: 2180655863
     locked: 0
+  - name: Enemy
+    uniqueID: 2101434657
+    locked: 0
+  - name: Enemy_Deco1
+    uniqueID: 304422535
+    locked: 0
+  - name: Enemy_Deco2
+    uniqueID: 2810467283
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
