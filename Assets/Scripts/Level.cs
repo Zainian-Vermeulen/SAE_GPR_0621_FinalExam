@@ -6,22 +6,13 @@ public class Level : SingletonBehaviour<Level>
 {
     private int _coinsCollected = 0;
     private PlayerController _player;
-    private Camera _mainCamera;
 
     public event System.Action<int> CoinCollected;
     public event System.Action Reset;
 
-
     public Transform PlayerTranform => _player ? _player.transform : null;
 
     public Vector3 PlayerPosition => _player ? _player.transform.position : default(Vector3);
-
-    public Vector3 CameraPosition => _mainCamera ? _mainCamera.transform.position : default(Vector3);
-
-    private void Start()
-    {
-        _mainCamera = Camera.main;
-    }
 
     public void CollectCoin()
     {
