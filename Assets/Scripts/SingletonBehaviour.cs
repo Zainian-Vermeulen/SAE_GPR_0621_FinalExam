@@ -16,7 +16,7 @@ public class SingletonBehaviour<T> : MonoBehaviour where T : SingletonBehaviour<
         }
         else
         {
-            Debug.LogWarning("Second instance found for " + nameof(T));
+            Debug.LogWarning("Second instance found for " + typeof(T));
             Destroy(this);
         }
     }
@@ -24,7 +24,10 @@ public class SingletonBehaviour<T> : MonoBehaviour where T : SingletonBehaviour<
     protected virtual void OnDestroy()
     {
         if (s_instance == this)
+        {
+            Debug.Log($"Singleton for {typeof(T)} has been destroyed.");
             s_instance = null;
+        }
     }
 
 }

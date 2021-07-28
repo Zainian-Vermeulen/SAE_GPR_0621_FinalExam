@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     public event System.Action Grounded;
 
-    private void Awake()
+    private void Start()
     {
         Level.Instance.SetPlayer(this);
         Level.Instance.Reset += OnReset;
@@ -115,14 +115,33 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateState()
     {
-        if (_currentState == State.Idle && GetXSpeed() > 0.05f) SetState(State.Run);
-        else if (_currentState == State.Run && GetXSpeed() < 0.05f) SetState(State.Idle);
-        else if (_currentState == State.Jump && GetYVelocity() < 0) SetState(State.Fall);
-        else if (_currentState == State.Fall && GetYVelocity() >= 0) SetState(State.Idle);
-        else if (_currentState == State.Idle && !IsGrounded() && GetYVelocity() > 0) SetState(State.Jump);
-        else if (_currentState == State.Idle && !IsGrounded() && GetYVelocity() <= 0) SetState(State.Fall);
-        else if (_currentState == State.Run && !IsGrounded() && GetYVelocity() > 0) SetState(State.Jump);
-        else if (_currentState == State.Run && !IsGrounded() && GetYVelocity() <= 0) SetState(State.Fall);
+        switch (_currentState)
+        {
+            case State.Idle:
+                TryTransitionTo(State.Run, GetXSpeed() > 0.05f);
+                TryTransitionTo(State.Jump, !IsGrounded());
+                break;
+
+            case State.Run:
+                TryTransitionTo(State.Idle, GetXSpeed() < 0.05f);
+                TryTransitionTo(State.Jump, !IsGrounded());
+                break;
+
+            case State.Jump:
+                TryTransitionTo(State.Fall, GetYVelocity() < 0);
+                break;
+
+            case State.Fall:
+                TryTransitionTo(State.Idle, GetYVelocity() >= 0);
+                break;
+        }
+
+    }
+
+    private void TryTransitionTo(State to, bool condition)
+    {
+        if (condition)
+            SetState(to);
     }
 
     private void UpdateVisuals()

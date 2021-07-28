@@ -4,42 +4,42 @@ using UnityEngine;
 
 public class Level : SingletonBehaviour<Level>
 {
-    private int coinsCollected = 0;
-    private PlayerController player;
-    private Camera mainCamera;
+    private int _coinsCollected = 0;
+    private PlayerController _player;
+    private Camera _mainCamera;
 
     public event System.Action<int> CoinCollected;
     public event System.Action Reset;
 
 
-    public Transform PlayerTranform => player ? player.transform : null;
+    public Transform PlayerTranform => _player ? _player.transform : null;
 
-    public Vector3 PlayerPosition => player ? player.transform.position : default(Vector3);
+    public Vector3 PlayerPosition => _player ? _player.transform.position : default(Vector3);
 
-    public Vector3 CameraPosition => mainCamera ? mainCamera.transform.position : default(Vector3);
+    public Vector3 CameraPosition => _mainCamera ? _mainCamera.transform.position : default(Vector3);
 
     private void Start()
     {
-        mainCamera = Camera.main;
+        _mainCamera = Camera.main;
     }
 
     public void CollectCoin()
     {
-        coinsCollected++;
+        _coinsCollected++;
 
-        CoinCollected?.Invoke(coinsCollected);
+        CoinCollected?.Invoke(_coinsCollected);
     }
 
 
     public void SetPlayer(PlayerController _player)
     {
-        this.player = _player;
+        this._player = _player;
     }
 
     public void ResetLevel()
     {
         Debug.Log("Level Reset");
-        coinsCollected = 0;
+        _coinsCollected = 0;
         Reset?.Invoke();
     }
 }

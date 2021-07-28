@@ -5,34 +5,34 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
-    [SerializeField] PlayerController playerController;
-    [SerializeField] float offsetToShiftCamera;
-    [SerializeField] float camOffset;
-    [SerializeField] float minY, maxY;
-    [SerializeField] float lerpSpeed;
+    [SerializeField] PlayerController _playerController;
+    [SerializeField] float _offsetToShiftCamera;
+    [SerializeField] float _camOffset;
+    [SerializeField] float _minY, _maxY;
+    [SerializeField] float _lerpSpeed;
 
-    private float targetY = float.MinValue;
-    private float currentY;
+    private float _targetY = float.MinValue;
+    private float _currentY;
 
     private void Start()
     {
-        playerController.Grounded += OnGrounded;
+        _playerController.Grounded += OnGrounded;
         OnGrounded();
     }
 
     private void OnGrounded()
     {
-        float newY = playerController.transform.position.y + camOffset;
+        float newY = _playerController.transform.position.y + _camOffset;
 
-        if (Mathf.Abs(newY - targetY) > offsetToShiftCamera)
+        if (Mathf.Abs(newY - _targetY) > _offsetToShiftCamera)
         {
-            targetY = Mathf.Clamp(newY, minY, maxY);
+            _targetY = Mathf.Clamp(newY, _minY, _maxY);
         }
     }
 
     private void Update()
     {
-        currentY = Mathf.Lerp(currentY, targetY, Time.deltaTime * lerpSpeed);
-        transform.position = new Vector3(playerController.transform.position.x, currentY, -10);
+        _currentY = Mathf.Lerp(_currentY, _targetY, Time.deltaTime * _lerpSpeed);
+        transform.position = new Vector3(_playerController.transform.position.x, _currentY, -10);
     }
 }
