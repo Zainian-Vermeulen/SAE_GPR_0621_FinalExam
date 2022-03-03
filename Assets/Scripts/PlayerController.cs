@@ -129,10 +129,12 @@ public class PlayerController : MonoBehaviour
 
             case State.Jump:
                 TryTransitionTo(State.Fall, GetYVelocity() < 0);
+                _animator.SetBool("isJumping", true);
                 break;
 
             case State.Fall:
                 TryTransitionTo(State.Idle, GetYVelocity() >= 0);
+                _animator.SetBool("isFalling", true);
                 break;
         }
 
