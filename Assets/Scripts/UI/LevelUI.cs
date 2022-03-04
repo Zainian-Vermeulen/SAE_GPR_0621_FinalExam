@@ -24,7 +24,7 @@ public class LevelUI : MonoBehaviour
         }
     }
 
-    private void OnCoinCollected(int count)
+    public void OnCoinCollected(int count)
     {
         if (coins.Length >= count)
             coins[count - 1].SetActive(true);
