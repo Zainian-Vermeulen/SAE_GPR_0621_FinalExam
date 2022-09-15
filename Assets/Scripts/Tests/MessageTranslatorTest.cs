@@ -25,6 +25,8 @@ public class MessageTranslatorTest
         for (int i = 0; i < 1000; i++)
         {
             string msg = GetRandomString();
+           // SimpleTranslationTest("abcdefghijklmnopqrstuvwxyz");
+            //SimpleTranslationTest("zain");
             SimpleTranslationTest(msg);
         }
     }

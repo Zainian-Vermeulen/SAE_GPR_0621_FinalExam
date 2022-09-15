@@ -19,7 +19,6 @@ public static class MessageTranslator
     public static byte[] Encode(string message)
     {
         List<byte> data = new List<byte>();
-
         for (int i = 0; i < message.Length; i++)
         {
             char c = message[i];
@@ -32,7 +31,7 @@ public static class MessageTranslator
             else if (val >= 'a' && val <= 'z')
             {
                 int letterIndex = val - 'a';
-                val = (letterIndex + CAESAR_SHIFT) % 25;
+                val = (letterIndex + CAESAR_SHIFT) % 26;
 
                 data.Add((byte)val);
             }
@@ -41,7 +40,6 @@ public static class MessageTranslator
                 data.Add(255);
             }
         }
-
         return data.ToArray();
     }
 
@@ -59,14 +57,18 @@ public static class MessageTranslator
             }
             else if (val < 26)
             {
-                val = (val - CAESAR_SHIFT) % 26;
+                int value = (val - CAESAR_SHIFT) % 26;
+                
+                if (val <= 12)
+                {
+                    message += (char)(value + 'z' +1);
+                }
+                else
+                    message += (char)(value + 'a');
 
-                message += (char)(val);
             }
         }
 
         return message;
     }
-
-
 }
