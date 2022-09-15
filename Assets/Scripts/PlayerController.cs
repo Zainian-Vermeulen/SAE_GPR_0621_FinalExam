@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
     public event System.Action Grounded;
 
+    [SerializeField] private GameObject _vfx;
+
     private void Start()
     {
         Level.Instance.SetPlayer(this);
@@ -104,6 +106,9 @@ public class PlayerController : MonoBehaviour
             {
                 _rigidbody.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
                 SetState(State.Jump);
+                var x = Instantiate(_vfx, this.gameObject.transform);
+                Destroy(x, 0.9f);
+               
             }
         }
     }
