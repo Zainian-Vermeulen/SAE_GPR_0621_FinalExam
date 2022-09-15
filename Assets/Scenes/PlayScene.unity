@@ -232,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541544089}
   - component: {fileID: 541544088}
+  - component: {fileID: 541544090}
   m_Layer: 0
   m_Name: Mid
   m_TagString: Untagged
@@ -304,6 +305,20 @@ Transform:
   m_Father: {fileID: 998542707}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &541544090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541544087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1279aa6af82c914ea9ef8da6bb11a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 955857473}
+  parallaxEffect: 0.9
 --- !u!1 &554559432
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,6 +4894,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &955857473 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5280911789954481453, guid: eace76941555db44abd160cc50fd5079, type: 3}
+  m_PrefabInstance: {fileID: 5280911790394115410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &998542706
 GameObject:
   m_ObjectHideFlags: 0
@@ -5268,6 +5288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1898271826}
   - component: {fileID: 1898271825}
+  - component: {fileID: 1898271827}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -5340,6 +5361,20 @@ Transform:
   m_Father: {fileID: 998542707}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1898271827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898271824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1279aa6af82c914ea9ef8da6bb11a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 955857473}
+  parallaxEffect: 1.2
 --- !u!1 &1901218705
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,6 +5385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1901218707}
   - component: {fileID: 1901218706}
+  - component: {fileID: 1901218708}
   m_Layer: 0
   m_Name: Sky
   m_TagString: Untagged
@@ -5422,6 +5458,20 @@ Transform:
   m_Father: {fileID: 998542707}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1901218708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901218705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1279aa6af82c914ea9ef8da6bb11a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 955857473}
+  parallaxEffect: 1.5
 --- !u!1 &1969345779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5432,6 +5482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1969345781}
   - component: {fileID: 1969345780}
+  - component: {fileID: 1969345782}
   m_Layer: 0
   m_Name: Front
   m_TagString: Untagged
@@ -5504,6 +5555,20 @@ Transform:
   m_Father: {fileID: 998542707}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1969345782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969345779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1279aa6af82c914ea9ef8da6bb11a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 955857473}
+  parallaxEffect: 0.5
 --- !u!1 &2023209614
 GameObject:
   m_ObjectHideFlags: 0
