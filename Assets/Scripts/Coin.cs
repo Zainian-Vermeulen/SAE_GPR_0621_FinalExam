@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    [SerializeField] private Level _level;
+    private void Start()
+    {   
+        _level.Reset += SetCoinsActive;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -14,6 +19,11 @@ public class Coin : MonoBehaviour
 
             gameObject.SetActive(false);
         }   
+    }
+
+    private void SetCoinsActive()
+    {
+        gameObject.SetActive(true);
     }
 
 }
