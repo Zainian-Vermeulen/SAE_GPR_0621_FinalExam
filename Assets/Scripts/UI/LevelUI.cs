@@ -6,6 +6,8 @@ using UnityEngine;
 public class LevelUI : MonoBehaviour
 {
     [SerializeField] GameObject[] coins;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private AnimationClip _animationClip;
 
 
     private void Start()
@@ -26,7 +28,21 @@ public class LevelUI : MonoBehaviour
 
     private void OnCoinCollected(int count)
     {
+        StartCoroutine(FlyingCoin());
         if (coins.Length >= count)
+        {
             coins[count - 1].SetActive(true);
+        }
+    }
+
+    private IEnumerator FlyingCoin()
+    {
+       // _animator.SetBool("isFlying",  true);
+       
+        _animator.Play(_animationClip.name);
+        
+        //yield break;
+        yield return new WaitForSeconds(_animationClip.length);
+        
     }
 }
